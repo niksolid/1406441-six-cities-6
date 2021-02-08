@@ -6,10 +6,7 @@ const Setting = {
   CARDS_QUANTITY: 5
 };
 
-let cardsQuantity = [];
-for (let i = 0; i < Setting.CARDS_QUANTITY; i++) {
-  cardsQuantity[i] = ``;
-}
+const cardsQuantity = new Array(Setting.CARDS_QUANTITY).fill(``);
 
 ReactDOM.render(
     <App
