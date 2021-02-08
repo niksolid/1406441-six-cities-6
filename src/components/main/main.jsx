@@ -2,8 +2,8 @@ import React from 'react';
 import PlaceCard from '../place-card/place-card';
 import PropTypes from 'prop-types';
 
-const Main = ({cardsQuantity}) => {
-  return (
+const Main = ({cardsQuantity}) =>
+  (
     <div className="page page--gray page--main">
       <header className="header">
         <div className="container">
@@ -99,7 +99,6 @@ const Main = ({cardsQuantity}) => {
       </main>
     </div>
   );
-};
 
 Main.propTypes = {
   cardsQuantity: PropTypes.array.isRequired,
