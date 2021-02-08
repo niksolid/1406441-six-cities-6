@@ -2,9 +2,7 @@ import React from 'react';
 import PlaceCard from '../place-card/place-card';
 import PropTypes from 'prop-types';
 
-const Main = (props) => {
-  const {cardsQuantity} = props;
-
+const Main = ({cardsQuantity}) => {
   return (
     <div className="page page--gray page--main">
       <header className="header">
