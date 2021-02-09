@@ -8,22 +8,22 @@ import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 import NotFound from '../not-found/not-found';
 
-const App = ({cardsQuantity}) => (
+const App = ({cardsQuantity, Routes}) => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/">
+      <Route exact path={Routes.MAIN}>
         <Main cardsQuantity={cardsQuantity} />
       </Route>
-      <Route exact path="/login">
+      <Route exact path={Routes.LOGIN} >
         <Login />
       </Route>
-      <Route exact path="/favorites">
+      <Route exact path={Routes.FAVORITES}>
         <Favorites />
       </Route>
-      <Route exact path="/offer/:id?">
+      <Route exact path={Routes.ROOM}>
         <Room/>
       </Route>
-      <Route >
+      <Route >"
         <NotFound />
       </Route>
     </Switch>

@@ -6,11 +6,19 @@ const Setting = {
   CARDS_QUANTITY: 5
 };
 
+const Routes = {
+  MAIN: `/`,
+  LOGIN: `/login`,
+  FAVORITES: `/favorites`,
+  ROOM: `/offer/:id?`,
+}
+
 const cardsQuantity = new Array(Setting.CARDS_QUANTITY).fill(``);
 
 ReactDOM.render(
     <App
       cardsQuantity={cardsQuantity}
+      Routes = {Routes}
     />,
     document.querySelector(`#root`)
 );
