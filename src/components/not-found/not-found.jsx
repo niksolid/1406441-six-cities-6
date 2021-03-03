@@ -20,7 +20,7 @@ const Styles = {
     fontSize: `19px`,
     fontWeight: `300`
   }
-}
+};
 
 const NotFound = () =>
   (
@@ -48,10 +48,9 @@ const NotFound = () =>
         </div>
       </header>
       <main>
-        <h1 className="" style={Styles.NOT_FOUND_TITLE}>
+        <h1 style={Styles.NOT_FOUND_TITLE}>
           404 Not Found
         </h1>
-        {/* <Link className="locations__item-link" to="/" style= {Styles.mainPageLink}> */}
         <Link className="locations__item-link" to="/" style= {Styles.MAIN_PAGE_LINK}>
           <p>Go to main page</p>
         </Link>

@@ -1,24 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app';
-
-const Setting = {
-  CARDS_QUANTITY: 5
-};
+import offers from './mocks/offers';
 
 const Routes = {
   MAIN: `/`,
   LOGIN: `/login`,
   FAVORITES: `/favorites`,
-  ROOM: `/offer/:id?`,
-}
+  ROOM: `/offer/:id?`
+};
 
-const cardsQuantity = new Array(Setting.CARDS_QUANTITY).fill(``);
 
 ReactDOM.render(
     <App
-      cardsQuantity={cardsQuantity}
       Routes = {Routes}
+      offers = {offers}
     />,
     document.querySelector(`#root`)
 );
