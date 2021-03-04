@@ -1,6 +1,26 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
+const Styles = {
+  NOT_FOUND_TITLE: {
+    margin: `50px`,
+    marginBottom: `0`,
+    textAlign: `center`,
+    fontStyle: `oblique`,
+    fontWeight: `700`,
+    fontSize: `40px`
+  },
+  MAIN_PAGE_LINK: {
+    margin: `20px`,
+    padding: `9px 21px 6px 11px`,
+    paddingBottom: `100px`,
+    display: `block`,
+    textAlign: `center`,
+    fontStyle: `oblique`,
+    fontSize: `19px`,
+    fontWeight: `300`
+  }
+};
 
 const NotFound = () =>
   (
@@ -28,26 +48,10 @@ const NotFound = () =>
         </div>
       </header>
       <main>
-        <h1 className="" style={{
-          margin: `50px`,
-          marginBottom: `0`,
-          textAlign: `center`,
-          fontStyle: `oblique`,
-          fontWeight: `700`,
-          fontSize: `40px`
-        }}>
+        <h1 style={Styles.NOT_FOUND_TITLE}>
           404 Not Found
         </h1>
-        <Link className="locations__item-link" to="/" style= {{
-          margin: `20px`,
-          paddingBottom: `100px`,
-          display: `block`,
-          textAlign: `center`,
-          fontStyle: `oblique`,
-          padding: `9px 21px 6px 11px`,
-          fontSize: `19px`,
-          fontWeight: `300`
-        }}>
+        <Link className="locations__item-link" to="/" style= {Styles.MAIN_PAGE_LINK}>
           <p>Go to main page</p>
         </Link>
       </main>

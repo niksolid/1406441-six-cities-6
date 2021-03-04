@@ -8,22 +8,22 @@ import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 import NotFound from '../not-found/not-found';
 
-const App = ({cardsQuantity}) => (
+const App = ({Routes, offers}) => (
   <BrowserRouter>
     <Switch>
-      <Route exact path="/">
-        <Main cardsQuantity={cardsQuantity} />
+      <Route exact path={Routes.MAIN}>
+        <Main offers={offers} />
       </Route>
-      <Route exact path="/login">
+      <Route exact path={Routes.LOGIN} >
         <Login />
       </Route>
-      <Route exact path="/favorites">
-        <Favorites />
+      <Route exact path={Routes.FAVORITES}>
+        <Favorites offers={offers}/>
       </Route>
-      <Route exact path="/offer/:id?">
-        <Room/>
+      <Route exact path={Routes.ROOM}>
+        <Room offers={offers} />
       </Route>
-      <Route >
+      <Route>
         <NotFound />
       </Route>
     </Switch>
@@ -31,7 +31,8 @@ const App = ({cardsQuantity}) => (
 );
 
 App.propTypes = {
-  cardsQuantity: PropTypes.array.isRequired,
+  Routes: PropTypes.object.isRequired,
+  offers: PropTypes.array.isRequired
 };
 
 export default App;

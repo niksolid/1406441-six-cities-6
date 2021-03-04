@@ -1,29 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import CardPremiumMark from '../card-premium/card-premium';
 
-const PlaceCard = ({id, previewImage, price, title, type, isPremium, isFavorite, onMouseEnter}) => {
-  const handleMouseEnter = () => {
-    onMouseEnter(id);
-  };
+const FavoritesCard = ({id, price, title, previewImage, type}) => {
 
   return (
-    <article onMouseEnter={handleMouseEnter} className="cities__place-card place-card">
-      {isPremium && <CardPremiumMark />}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+    <article className="favorites__card place-card">
+      <div className="favorites__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={previewImage} alt="Place image" width={260} height={200} />
+          <img className="place-card__image" src={previewImage} alt="Place image" width={150} height={110} />
         </a>
       </div>
-      <div className="place-card__info">
-
+      <div className="favorites__card-info place-card__info">
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">{`€${price}`}</b>
             <span className="place-card__price-text">/&nbsp;night</span>
           </div>
-          <button className={`place-card__bookmark-button button ${isFavorite ? `place-card__bookmark-button--active` : ``}`} type="button">
+          <button className="place-card__bookmark-button place-card__bookmark-button--active button" type="button">
             <svg className="place-card__bookmark-icon" width={18} height={19}>
               <use xlinkHref="#icon-bookmark" />
             </svg>
@@ -32,7 +26,7 @@ const PlaceCard = ({id, previewImage, price, title, type, isPremium, isFavorite,
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `80%`}} />
+            <span style={{width: `100%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -45,15 +39,12 @@ const PlaceCard = ({id, previewImage, price, title, type, isPremium, isFavorite,
   );
 };
 
-PlaceCard.propTypes = {
+FavoritesCard.propTypes = {
   id: PropTypes.number.isRequired,
-  previewImage: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequierd,
   title: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  isPremium: PropTypes.bool.isRequired,
-  isFavorite: PropTypes.bool.isRequired,
-  onMouseEnter: PropTypes.func.isRequired
+  previewImage: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired
 };
 
-export default PlaceCard;
+export default FavoritesCard;
