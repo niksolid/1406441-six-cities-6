@@ -1,6 +1,7 @@
 import React from 'react';
 import ListOffers from '../list-offers/list-offers';
 import PropTypes from 'prop-types';
+import MainMap from '../main-map/main-map';
 
 const Main = ({offers}) =>
   (
@@ -88,7 +89,9 @@ const Main = ({offers}) =>
               <ListOffers offers={offers} />
             </section>
             <div className="cities__right-section">
-              <section className="cities__map map" />
+              <MainMap
+                offers={offers}
+              />
             </div>
           </div>
         </div>
