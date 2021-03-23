@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import PlaceCard from '../place-card/place-card';
 
@@ -34,4 +35,9 @@ ListOffers.propTypes = {
   offers: PropTypes.array.isRequired,
 };
 
-export default ListOffers;
+const mapStateToProps = ({offers}) => ({
+  offers
+});
+
+export {ListOffers};
+export default connect(mapStateToProps, null)(ListOffers);

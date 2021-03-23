@@ -4,7 +4,6 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import App from './components/app/app';
-import offers from './mocks/offers';
 import {reducer} from './store/reducer';
 
 const Routes = {
@@ -16,12 +15,10 @@ const Routes = {
 
 const store = createStore(reducer, composeWithDevTools());
 
-
 ReactDOM.render(
     <Provider store={store}>
       <App
         Routes = {Routes}
-        offers = {offers}
       />
     </Provider>,
     document.querySelector(`#root`)

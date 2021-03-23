@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
 import FavoritesCard from '../favorites-card/favorites-card';
@@ -73,4 +74,9 @@ Favorites.propTypes = {
   offers: PropTypes.array.isRequired,
 };
 
-export default Favorites;
+const mapStateToProps = ({offers}) => (
+  offers
+);
+
+export {Favorites};
+export default connect(mapStateToProps, null)(Favorites);
