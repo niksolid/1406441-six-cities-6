@@ -1,20 +1,21 @@
+import {offers} from './../mocks/offers';
 import {ActionType} from './action';
-import {offers} from '../mocks/offers';
 
 const initialState = {
   city: `Amsterdam`,
-  cards: offers
+  offers
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionType.CHANGE_CITY:
       return {
-        ...state
+        ...state,
+        city: action.payload
       };
+    default:
+      return state;
   }
-
-  return state;
 };
 
-export default reducer;
+export {reducer};
