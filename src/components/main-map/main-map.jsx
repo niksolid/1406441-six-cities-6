@@ -2,6 +2,7 @@ import React, {useEffect, createRef} from 'react';
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 
 const city = [52.38333, 4.9];
 
@@ -38,8 +39,6 @@ const MainMap = ({offers}) => {
         .addTo(mapRef.current);
 
     });
-
-    // return () => console.log('unmount');
   }, []);
 
   return (
@@ -51,4 +50,9 @@ MainMap.propTypes = {
   offers: PropTypes.array.isRequired,
 };
 
-export default MainMap;
+const mapStateToProps = ({offers}) => ({
+  offers
+});
+
+export {MainMap};
+export default connect(mapStateToProps, null)(MainMap);

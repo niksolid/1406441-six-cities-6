@@ -8,20 +8,20 @@ import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 import NotFound from '../not-found/not-found';
 
-const App = ({Routes, offers}) => (
+const App = ({Routes}) => (
   <BrowserRouter>
     <Switch>
       <Route exact path={Routes.MAIN}>
-        <Main offers={offers} />
+        <Main />
       </Route>
       <Route exact path={Routes.LOGIN} >
         <Login />
       </Route>
       <Route exact path={Routes.FAVORITES}>
-        <Favorites offers={offers}/>
+        <Favorites />
       </Route>
       <Route exact path={Routes.ROOM}>
-        <Room offers={offers} />
+        <Room />
       </Route>
       <Route>
         <NotFound />
@@ -32,7 +32,6 @@ const App = ({Routes, offers}) => (
 
 App.propTypes = {
   Routes: PropTypes.object.isRequired,
-  offers: PropTypes.array.isRequired
 };
 
 export default App;
