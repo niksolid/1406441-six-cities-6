@@ -1,26 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Switch, Route, BrowserRouter} from 'react-router-dom';
+import {Switch, Route, Router as BrowserRouter} from 'react-router-dom';
 
 import Main from '../main/main';
 import Login from '../login/login';
 import Favorites from '../favorites/favorites';
 import Room from '../room/room';
 import NotFound from '../not-found/not-found';
+import PrivateRoute from '../private-route/private-route';
+import browserHistory from '../../browser-history';
+import {AppRoute} from '../../const';
 
-const App = ({Routes}) => (
-  <BrowserRouter>
+const App = () => (
+  <BrowserRouter history={browserHistory}>
     <Switch>
-      <Route exact path={Routes.MAIN}>
+      <Route exact path={AppRoute.MAIN}>
         <Main />
       </Route>
-      <Route exact path={Routes.LOGIN} >
+      <Route
+        exact
+        path={AppRoute.LOGIN}
+      >
+        {/* // render={({history}) => {
+        //   return (
+        //     <Login
+        //     />
+        //   );
+        // }
+        // }
+      // /> */}
         <Login />
       </Route>
-      <Route exact path={Routes.FAVORITES}>
-        <Favorites />
-      </Route>
-      <Route exact path={Routes.ROOM}>
+      <PrivateRoute
+        exact
+        path={AppRoute.FAVORITES}
+        render={() => {
+          return (
+            <Favorites />
+          );
+        }}
+      />
+      <Route exact path={AppRoute.ROOM}>
         <Room />
       </Route>
       <Route>
@@ -31,7 +51,7 @@ const App = ({Routes}) => (
 );
 
 App.propTypes = {
-  Routes: PropTypes.object.isRequired,
+  // Routes: PropTypes.object.isRequired,
 };
 
 export default App;

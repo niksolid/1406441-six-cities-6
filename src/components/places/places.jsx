@@ -25,7 +25,7 @@ const Places = ({offers, city}) => {
           <li className="places__option" tabIndex={0}>Top rated first</li>
         </ul>
       </form>
-      <ListOffers offers={offers} />
+      <ListOffers />
     </section>
   );
 };

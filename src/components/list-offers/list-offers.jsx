@@ -3,12 +3,15 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import PlaceCard from '../place-card/place-card';
 
-const ListOffers = ({offers}) => {
+const ListOffers = ({offers, city}) => {
   const [activeCard, setActiveCard] = useState(offers[0].id);
 
   const handleMouseEnter = (id) => {
     setActiveCard(id);
   };
+
+  console.log(city)
+  console.log(activeCard)
 
   return (
     <div className="cities__places-list places__list tabs__content">
@@ -35,8 +38,9 @@ ListOffers.propTypes = {
   offers: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = ({offers}) => ({
-  offers
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+  city: state.city
 });
 
 export {ListOffers};
