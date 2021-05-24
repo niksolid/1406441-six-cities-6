@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import {CITIES} from '../../const';
-import {ActionCreator} from '../../store/action';
+import {CITIES} from '../../../const';
+import {changeCityAction} from '../../../store/action';
 
 const LocationsList = ({changeCity, city}) => {
 
@@ -20,7 +20,7 @@ const LocationsList = ({changeCity, city}) => {
               <a className={`locations__item-link tabs__item ${item === city ? `tabs__item--active` : ``}`} href="#">
                 <span onClick={() => cityClickHandler(item)}>{item}</span>
               </a>
-            </li>
+            </li>,
           )
         }
       </ul>
@@ -28,14 +28,14 @@ const LocationsList = ({changeCity, city}) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  changeCity(city) {
-    dispatch(ActionCreator.changeCity(city));
-  }
-});
-
 const mapStateToProps = ({city}) => ({
   city
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  changeCity(city) {
+    dispatch(changeCityAction(city));
+  }
 });
 
 LocationsList.propTypes = {

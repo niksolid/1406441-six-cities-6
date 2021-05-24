@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 
 import PropTypes from 'prop-types';
-import ListOffers from '../list-offers/list-offers';
+import ListOffers from './list-offers/list-offers';
+import {setOffersCity} from "../../utils";
+import {chooseCityOffers} from "../../store/action";
 
-const Places = ({offers, city}) => {
+const Places = ({offers, city, cityOffers, onSelectedOffers}) => {
+  cityOffers = setOffersCity(offers, city);
+  useEffect(() => onSelectedOffers(cityOffers), [city]);
 
   return (
     <section className="cities__places places">
       <h2 className="visually-hidden">Places</h2>
-      <b className="places__found">{offers.length} places to stay in {city}</b>
+      <b className="places__found">{cityOffers.length} places to stay in {city}</b>
       <form className="places__sorting" action="#" method="get">
         <span className="places__sorting-caption">Sort by</span>
         <span className="places__sorting-type" tabIndex={0}>
@@ -33,13 +37,22 @@ const Places = ({offers, city}) => {
 
 Places.propTypes = {
   city: PropTypes.string.isRequired,
-  offers: PropTypes.array.isRequired
+  offers: PropTypes.array.isRequired,
+  cityOffers: PropTypes.array.isRequired,
+  onSelectedOffers: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({city, offers}) => ({
+const mapStateToProps = ({city, offers, cityOffers}) => ({
   city,
-  offers
+  offers,
+  cityOffers
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onSelectedOffers(cityOffers) {
+    dispatch(chooseCityOffers(cityOffers));
+  }
 });
 
 export {Places};
-export default connect(mapStateToProps, null)(Places);
+export default connect(mapStateToProps, mapDispatchToProps)(Places);

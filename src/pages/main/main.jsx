@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import Places from '../places/places';
-import MainMap from '../main-map/main-map';
-import Header from '../header/header';
-import LocationList from '../locations-list/locations-list';
-import LoadingScreen from '../loading-screen/loading-screen';
-import {fetchOfferList} from '../../store/api-actions';
 import {connect} from 'react-redux';
+import Places from '../../components/places/places';
+import MainMap from '../../components/main-map/main-map';
+import Header from '../../components/header/header';
+import LocationList from '../../components/main/locations-list/locations-list';
+import LoadingScreen from '../../components/loading-screen/loading-screen';
+import {fetchOfferList} from '../../store/api-actions';
 
 const Main = ({isDataLoaded, onLoadData}) => {
   useEffect(() => {

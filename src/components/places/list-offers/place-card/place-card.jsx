@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import CardPremiumMark from '../card-premium/card-premium';
+import CardPremiumMark from '../../../card-premium/card-premium';
 
-const PlaceCard = ({id, previewImage, price, title, type, isPremium, isFavorite, onMouseEnter}) => {
+const PlaceCard = ({id, previewImage, price, rating, title, type, isPremium, isFavorite, onMouseEnter}) => {
   const handleMouseEnter = () => {
     onMouseEnter(id);
   };
@@ -32,7 +32,7 @@ const PlaceCard = ({id, previewImage, price, title, type, isPremium, isFavorite,
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `80%`}} />
+            <span style={{width: `${Math.round(rating) * 20}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
@@ -49,6 +49,7 @@ PlaceCard.propTypes = {
   id: PropTypes.number.isRequired,
   previewImage: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   isPremium: PropTypes.bool.isRequired,

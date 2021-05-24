@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link} from "react-router-dom";
-import FavoritesCard from '../favorites-card/favorites-card';
+import FavoritesCard from '../../components/favorites-card/favorites-card';
 
 const Favorites = ({offers}) => (
   <div className="page">

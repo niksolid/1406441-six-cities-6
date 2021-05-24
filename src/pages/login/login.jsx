@@ -1,9 +1,8 @@
 import React, {useRef} from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
 import {login} from '../../store/api-actions';
 import {connect} from 'react-redux';
-import {Header} from '../header/header';
+import {Header} from '../../components/header/header';
 
 const Login = ({onSubmit, city}) => {
   const loginRef = useRef();
