@@ -1,12 +1,14 @@
 export const ActionType = {
-  CHANGE_CITY: `CHANGE_CITY`,
-  SET_OFFER: `SET_OFFERS`,
+  CHANGE_CITY: `main/changeCity`,
+  SET_OFFER: `main/setOffers`,
+  SET_ACTIVE_CARD: `main/setActiveCard`,
   LOAD_OFFERS: `data/loadOffers`,
+  LOAD_OFFER: `data/loadOffer`,
+  LOAD_NEARBY: `data/loadNearby`,
   CHOOSE_CITY_OFFERS: `data/offersSelection`,
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
   CHANGE_USER_NAME: `user/changeUserName`,
   REDIRECT_TO_ROUTE: `login/redirectToRoute`,
-  SET_ACTIVE_CARD: `setActiveCard`,
 };
 
 export const changeCityAction = (city) => ({
@@ -26,6 +28,20 @@ export const setOffers = () => ({
 export const loadOffers = (offers) => ({
   type: ActionType.LOAD_OFFERS,
   payload: offers
+});
+
+export const loadOffer = (offer) => ({
+  type: ActionType.LOAD_OFFER,
+  payload: offer
+});
+
+export const loadNearbyOffers = (nearby) => ({
+  type: ActionType.LOAD_NEARBY,
+  payload: nearby
+});
+export const loadComments = (comments) => ({
+  type: ActionType.LOAD_NEARBY,
+  payload: comments
 });
 
 export const requiredAuthorization = (status) => ({

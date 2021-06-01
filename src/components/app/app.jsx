@@ -7,7 +7,8 @@ import Login from '../../pages/login/login';
 import Favorites from '../../pages/favorites/favorites';
 import Room from '../../pages/room/room';
 import NotFound from '../../pages/not-found/not-found';
-import PrivateRoute from '../private-route/private-route';
+import PrivateRoute from '../route/private-route/private-route';
+import OfferRoute from "../route/offer-route/offer-route";
 import browserHistory from '../../browser-history';
 import {AppRoute} from '../../const';
 
@@ -15,28 +16,40 @@ const App = () => (
   <BrowserRouter history={browserHistory}>
     <Switch>
       <Route exact path={AppRoute.MAIN}>
-        <Main />
+        <Main/>
       </Route>
       <Route
         exact
         path={AppRoute.LOGIN}
       >
-        <Login />
+        <Login/>
       </Route>
       <PrivateRoute
         exact
         path={AppRoute.FAVORITES}
         render={() => {
           return (
-            <Favorites />
+            <Favorites/>
           );
         }}
       />
-      <Route exact path={AppRoute.ROOM}>
+      <Route
+        exact
+        path={AppRoute.ROOM}
+      >
         <Room />
       </Route>
+      {/*<OfferRoute*/}
+      {/*  exact*/}
+      {/*  path={AppRoute.ROOM}*/}
+      {/*  render={() => {*/}
+      {/*    return (*/}
+      {/*      <Room/>*/}
+      {/*    );*/}
+      {/*  }}*/}
+      {/*/>*/}
       <Route>
-        <NotFound />
+        <NotFound/>
       </Route>
     </Switch>
   </BrowserRouter>

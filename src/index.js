@@ -8,7 +8,6 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import App from './components/app/app';
 import {reducer} from './store/reducer';
 import {requiredAuthorization} from './store/action';
-
 import {AuthorizationStatus} from './const';
 import {checkAuth} from './store/api-actions';
 import {redirect} from './store/middlewares/redirect';

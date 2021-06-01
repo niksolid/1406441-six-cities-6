@@ -11,11 +11,13 @@ export const AppRoute = {
   MAIN: `/`,
   LOGIN: `/login`,
   FAVORITES: `/favorites`,
-  ROOM: `/offer/:id?`
+  ROOM: `/hotels/:id?`
 };
 
 export const APIRoute = {
   HOTELS: `/hotels`,
+  FAVORITE: `/favorite`,
+  COMMENTS: `/comments`,
   LOGIN: `/login`,
   LOGOUT: `/logout`
 };

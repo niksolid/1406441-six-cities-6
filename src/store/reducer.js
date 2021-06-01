@@ -4,12 +4,14 @@ import {AuthorizationStatus} from '../const';
 const initialState = {
   city: `Paris`,
   offers: [],
-  cityOffers: [],
-  offer: {},
-  authorizationStatus: AuthorizationStatus.NO_AUTH,
   isDataLoaded: false,
+  offer: {},
+  nearby: {},
+  comments: {},
+  cityOffers: [],
+  authorizationStatus: AuthorizationStatus.NO_AUTH,
   userName: ``,
-  activeCard: 0
+  activeCard: 0,
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,33 +24,48 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHOOSE_CITY_OFFERS:
       return {
         ...state,
-        cityOffers: action.payload
+        cityOffers: action.payload,
+      };
+    case ActionType.SET_OFFER:
+      return {
+        state,
+        offer: action.payload,
       };
     case ActionType.LOAD_OFFERS:
       return {
         ...state,
         offers: action.payload,
-        isDataLoaded: true
+        isDataLoaded: true,
       };
-    case ActionType.SET_OFFER:
+    case ActionType.LOAD_OFFER:
       return {
-        state,
-        offer: action.payload
+        ...state,
+        offer: action.payload,
+      };
+    case ActionType.LOAD_NEARBY:
+      return {
+        ...state,
+        nearby: action.payload
+      };
+    case ActionType.LOAD_COMMENTS:
+      return {
+        ...state,
+        comments: action.payload
       };
     case ActionType.REQUIRED_AUTHORIZATION:
       return {
         ...state,
-        authorizationStatus: action.payload
+        authorizationStatus: action.payload,
       };
     case ActionType.CHANGE_USER_NAME:
       return {
         ...state,
-        userName: action.payload
+        userName: action.payload,
       };
     case ActionType.SET_ACTIVE_CARD:
       return {
         ...state,
-        activeCard: action.payload
+        activeCard: action.payload,
       };
     default:
       return state;
